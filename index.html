@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schoberths Oster-Rallye Niederstimm 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #3d6b4f;
+    --green-light: #e8f2eb;
+    --gold: #d4a228;
+    --gold-light: #fdf3d7;
+    --pink: #c4587a;
+    --pink-light: #fce8ef;
+    --sky: #5b9ec4;
+    --cream: #faf7f0;
+    --warm: #f5efe3;
+    --bark: #5c4a32;
+    --dark: #2a2118;
+    --card: #fffef8;
+    --shadow: rgba(42,33,24,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 50% 60% at 30% 25%, rgba(61,107,79,0.12), transparent),
+      radial-gradient(ellipse 40% 50% at 75% 70%, rgba(212,162,40,0.1), transparent),
+      radial-gradient(ellipse 35% 40% at 50% 90%, rgba(196,88,122,0.08), transparent),
+      linear-gradient(175deg, #eef6e8 0%, var(--cream) 35%, var(--warm) 70%, #fce8ef 100%);
+  }
+
+  .egg {
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0;
+    animation: eggDrift 7s ease-in-out infinite;
+  }
+  .egg:nth-child(1) { width:38px;height:50px;background:var(--gold);top:8%;left:6%;animation-delay:0s; }
+  .egg:nth-child(2) { width:28px;height:36px;background:var(--pink);top:18%;right:10%;animation-delay:1.8s; }
+  .egg:nth-child(3) { width:32px;height:42px;background:var(--sky);bottom:22%;left:12%;animation-delay:3.6s; }
+  .egg:nth-child(4) { width:24px;height:31px;background:#a8d5a2;top:55%;right:7%;animation-delay:2.4s; }
+  .egg:nth-child(5) { width:20px;height:26px;background:#f0c27a;bottom:12%;right:25%;animation-delay:4.8s; }
+  .egg:nth-child(6) { width:26px;height:34px;background:#b8a9c9;top:40%;left:4%;animation-delay:5.5s; }
+
+  @keyframes eggDrift {
+    0%   { opacity:0; transform: translateY(12px) rotate(-8deg); }
+    15%  { opacity:0.45; }
+    50%  { opacity:0.45; transform: translateY(-14px) rotate(6deg); }
+    85%  { opacity:0.45; }
+    100% { opacity:0; transform: translateY(12px) rotate(-8deg); }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    color: var(--green);
+    text-shadow: 2px 3px 0 rgba(212,162,40,0.25);
+    line-height: 1.1;
+    animation: heroIn 0.9s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+
+  .hero .tagline {
+    font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+    font-style: italic;
+    color: var(--bark);
+    max-width: 420px;
+    margin: 1rem auto 0;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+
+  .hero .badge {
+    display: inline-block;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--green);
+    background: var(--green-light);
+    border: 1.5px solid rgba(61,107,79,0.2);
+    padding: 0.45rem 1.4rem;
+    border-radius: 99px;
+    margin-top: 1.8rem;
+    animation: fadeUp 0.8s 0.7s ease both;
+  }
+
+  @keyframes heroIn {
+    from { transform: scale(0.6) translateY(20px); opacity:0; }
+    to   { transform: scale(1) translateY(0); opacity:1; }
+  }
+  @keyframes fadeUp {
+    from { transform: translateY(16px); opacity:0; }
+    to   { transform: translateY(0); opacity:1; }
+  }
+
+  /* ─── STORY INTRO ─── */
+  .story-intro {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+
+  .story-intro .story-label {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .story-intro p {
+    font-size: 1.1rem;
+    color: #4a3f30;
+  }
+
+  .story-intro p strong { color: var(--gold); font-weight: 600; }
+
+  /* ─── STATIONS ─── */
+  .stations {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 3rem;
+  }
+
+  .path-line {
+    width: 2px;
+    height: 48px;
+    margin: 0 auto;
+    background: repeating-linear-gradient(to bottom, var(--green) 0 5px, transparent 5px 10px);
+    opacity: 0.4;
+  }
+
+  .path-arrow {
+    text-align: center;
+    padding: 0.8rem 0;
+  }
+
+  .path-arrow .next-hint {
+    display: inline-block;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--bark);
+    background: var(--gold-light);
+    border: 1.5px dashed var(--gold);
+    border-radius: 14px;
+    padding: 0.7rem 1.2rem;
+    max-width: 480px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .path-arrow .next-hint::before { content: '📜 '; }
+
+  .station {
+    position: relative;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 2px 16px var(--shadow), 0 0 0 1px rgba(0,0,0,0.03);
+    overflow: hidden;
+  }
+
+  .station::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+  }
+
+  .station[data-num="1"]::before { background: linear-gradient(90deg, var(--pink), var(--gold)); }
+  .station[data-num="2"]::before { background: linear-gradient(90deg, var(--gold), var(--green)); }
+  .station[data-num="3"]::before { background: linear-gradient(90deg, var(--green), var(--sky)); }
+  .station[data-num="4"]::before { background: linear-gradient(90deg, var(--sky), var(--bark)); }
+  .station[data-num="5"]::before { background: linear-gradient(90deg, var(--bark), var(--pink)); }
+
+  .station-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .station-num {
+    flex-shrink: 0;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .station[data-num="1"] .station-num { background: var(--pink); }
+  .station[data-num="2"] .station-num { background: var(--gold); }
+  .station[data-num="3"] .station-num { background: var(--green); }
+  .station[data-num="4"] .station-num { background: var(--sky); }
+  .station[data-num="5"] .station-num { background: var(--bark); }
+
+  .station-title {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--dark);
+    line-height: 1.25;
+  }
+
+  .station-location {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  .station .story-text {
+    font-style: italic;
+    color: #5e5040;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, rgba(212,162,40,0.06), rgba(61,107,79,0.04));
+    border-radius: 12px;
+    margin-bottom: 1.2rem;
+    border-left: 3px solid var(--gold);
+    font-size: 1rem;
+  }
+
+  .task {
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    margin-top: 0.8rem;
+  }
+
+  .task-kids {
+    background: var(--pink-light);
+    border: 1.5px dashed rgba(196,88,122,0.35);
+  }
+
+  .task-adults {
+    background: var(--green-light);
+    border: 1.5px dashed rgba(61,107,79,0.3);
+  }
+
+  .task .task-label {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+  }
+
+  .task-kids .task-label { color: var(--pink); }
+  .task-adults .task-label { color: var(--green); }
+
+  .task p { font-size: 0.95rem; }
+
+  /* spoiler reveals */
+  .spoiler {
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .spoiler-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    border: none;
+    background: rgba(61,107,79,0.08);
+    padding: 0.55rem 1rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--green);
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+  }
+
+  .spoiler-toggle:hover { background: rgba(61,107,79,0.14); }
+
+  .spoiler-toggle .icon {
+    display: inline-block;
+    transition: transform 0.3s;
+    font-size: 0.7rem;
+  }
+
+  .spoiler.open .spoiler-toggle .icon { transform: rotate(90deg); }
+
+  .spoiler-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 1rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.88rem;
+    color: var(--green);
+    font-weight: 500;
+    background: rgba(61,107,79,0.04);
+  }
+
+  .spoiler.open .spoiler-body {
+    max-height: 200px;
+    padding: 0.65rem 1rem;
+  }
+
+  /* ─── FINALE ─── */
+  .finale {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    text-align: center;
+  }
+
+  .finale h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--green);
+    margin-bottom: 0.6rem;
+  }
+
+  .finale p {
+    font-size: 1.05rem;
+    color: #4a3f30;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .letter-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .letter-box {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    width: 56px; height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 2.5px dashed var(--gold);
+    background: var(--gold-light);
+    color: var(--bark);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .letter-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212,162,40,0.25);
+  }
+
+  .letter-box span { opacity: 0.25; }
+
+  .finale .final-note {
+    font-size: 0.95rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 500px) {
+    .station { padding: 1.5rem 1.2rem; }
+    .station-header { gap: 0.7rem; }
+    .station-num { width: 34px; height: 34px; font-size: 1.1rem; }
+    .station-title { font-size: 1.1rem; }
+    .letter-box { width: 48px; height: 54px; font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="egg"></div><div class="egg"></div><div class="egg"></div>
+  <div class="egg"></div><div class="egg"></div><div class="egg"></div>
+  <div class="hero-content">
+    <h1>Schoberths Oster-Rallye</h1>
+    <p class="tagline">Das Geheimnis des verschwundenen Goldenen Eis von Niederstimm</p>
+    <div class="badge">5 Stationen · zu Fuß · ca. 1,5 Stunden</div>
+  </div>
+</section>
+
+<section class="story-intro">
+  <div class="story-label">Die Geschichte</div>
+  <p>
+    Der Osterhase war in der Nacht unterwegs, um sein kostbarstes Geschenk zu verstecken: das <strong>Goldene Ei</strong>, das nur einmal im Jahr erscheint. Doch eine freche Elster hat es gestohlen und in fünf Teile zerbrochen! Die Splitter hat sie an verschiedenen Orten in Niederstimm versteckt. An jeder Station findet ihr einen Buchstaben. Sammelt alle fünf — und ihr wisst, wo der Schatz liegt.
+  </p>
+</section>
+
+<section class="stations">
+
+  <!-- ══ STATION 1 ══ -->
+  <div class="station" data-num="1">
+    <div class="station-header">
+      <div class="station-num">1</div>
+      <div>
+        <div class="station-title">Das rosa Haus der Heilmittel</div>
+        <div class="station-location">Apotheke im Medi-Center · Mitterstraße 18</div>
+      </div>
+    </div>
+    <div class="story-text">
+      „Die Elster hatte Bauchweh vom Ei-Klauen. Sie flog zum rosa Haus, wo die Menschen Medizin holen. Dort hat sie vor Schreck den ersten Splitter fallen lassen…"
+    </div>
+    <div class="task task-kids">
+      <div class="task-label">🐣 Kinder-Aufgabe</div>
+      <p>Zählt, wie viele Fenster das rosa Haus hat! Dann hüpft genau so oft auf einem Bein.</p>
+    </div>
+    <div class="task task-adults">
+      <div class="task-label">🧩 Erwachsenen-Rätsel</div>
+      <p><em>„Ich werde kleiner, je mehr ich altere, aber ich kann nie sterben, solange Wind und Regen mich verschonen. Bei Nacht zum Leben erweckt, am Tag bin ich ein Nichts. Was bin ich?"</em></p>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Tipp anzeigen</button>
+        <div class="spoiler-body">💡 Denkt an etwas, das brennt — man findet es auf Torten und Adventskränzen.</div>
+      </div>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Lösung anzeigen</button>
+        <div class="spoiler-body">✅ Eine Kerze!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="path-line"></div>
+  <div class="path-arrow">
+    <div class="next-hint">„Die Elster flog davon — aber nicht weit! Sie landete dort, wo sich die Straßen im Kreis drehen. Sucht den Kreisel ganz in der Nähe!"</div>
+  </div>
+  <div class="path-line"></div>
+
+  <!-- ══ STATION 2 ══ -->
+  <div class="station" data-num="2">
+    <div class="station-header">
+      <div class="station-num">2</div>
+      <div>
+        <div class="station-title">Der kreisende Stein</div>
+        <div class="station-location">Am Kreisel · nahe Mitterstraße / Wechselfeld</div>
+      </div>
+    </div>
+    <div class="story-text">
+      „Die Elster setzte sich mitten auf den Kreisel und drehte sich im Kreis — so schwindelig, dass ihr der zweite Splitter aus dem Schnabel fiel. Nur wer genau hinschaut, findet ihn…"
+    </div>
+    <div class="task task-kids">
+      <div class="task-label">🐣 Kinder-Aufgabe</div>
+      <p>Sucht etwas <strong>Rotes</strong>, etwas <strong>Grünes</strong> und etwas <strong>Gelbes</strong> rund um den Kreisel — die Osterfarben! Zeigt es den Erwachsenen.</p>
+    </div>
+    <div class="task task-adults">
+      <div class="task-label">🧩 Erwachsenen-Rätsel</div>
+      <p><em>„Drei Freunde gehen essen. Die Rechnung: 30 €. Jeder zahlt 10 €. Der Kellner merkt — es waren nur 25 €. Er gibt jedem 1 € zurück und behält 2 € Trinkgeld. Jeder hat also 9 € bezahlt: 3 × 9 = 27, plus 2 € Trinkgeld = 29 €. Wo ist der fehlende Euro?"</em></p>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Tipp anzeigen</button>
+        <div class="spoiler-body">💡 Der Denkfehler steckt in der Rechnung selbst — warum addiert man die 2 € zu den 27 €?</div>
+      </div>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Lösung anzeigen</button>
+        <div class="spoiler-body">✅ Die 27 € enthalten bereits die 2 € Trinkgeld (25 € Essen + 2 €). Plus 3 € zurück = 30 €. Es fehlt gar nichts!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="path-line"></div>
+  <div class="path-arrow">
+    <div class="next-hint">„Die Elster hörte Kinderlachen und wurde neugierig. Sie flog dorthin, wo Kinder rutschen und im Sand spielen — ganz in der Nähe!"</div>
+  </div>
+  <div class="path-line"></div>
+
+  <!-- ══ STATION 3 ══ -->
+  <div class="station" data-num="3">
+    <div class="station-header">
+      <div class="station-num">3</div>
+      <div>
+        <div class="station-title">Der verzauberte Spielplatz</div>
+        <div class="station-location">Spielplatz · Im Wechselfeld 20</div>
+      </div>
+    </div>
+    <div class="story-text">
+      „Hier spielen sonst die Kinder — aber heute hat die Elster den dritten Splitter zwischen den Spielgeräten versteckt!"
+    </div>
+    <div class="task task-kids">
+      <div class="task-label">🐣 Kinder-Aufgabe</div>
+      <p>Jedes Kind muss <strong>3 × rutschen</strong> und danach einen Osterhasen in den Sand malen. Erst dann dürft ihr den Hinweis suchen!</p>
+    </div>
+    <div class="task task-adults">
+      <div class="task-label">🧩 Erwachsenen-Rätsel</div>
+      <p><em>„Was hat einen Hals, aber keinen Kopf, zwei Arme, aber keine Hände?"</em></p>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Tipp anzeigen</button>
+        <div class="spoiler-body">💡 Ihr tragt es fast jeden Tag — besonders wenn es draußen kalt ist.</div>
+      </div>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Lösung anzeigen</button>
+        <div class="spoiler-body">✅ Ein Pullover!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="path-line"></div>
+  <div class="path-arrow">
+    <div class="next-hint">„Die Elster flog weiter in die Vergangenheit — dorthin, wo vor über 2000 Jahren Krieger lebten. Sucht das alte Tor an der großen Straße!"</div>
+  </div>
+  <div class="path-line"></div>
+
+  <!-- ══ STATION 4 ══ -->
+  <div class="station" data-num="4">
+    <div class="station-header">
+      <div class="station-num">4</div>
+      <div>
+        <div class="station-title">Das Rittertor der Kelten</div>
+        <div class="station-location">Keltentempel · Ingolstädter Str. 100</div>
+      </div>
+    </div>
+    <div class="story-text">
+      „Die Elster flog über die uralte Keltenstadt. Die Geister der keltischen Krieger riefen: ‚Halt, Diebin!' Vor Schreck ließ sie den vierten Splitter genau hier fallen…"
+    </div>
+    <div class="task task-kids">
+      <div class="task-label">🐣 Kinder-Aufgabe</div>
+      <p>Werdet zu keltischen Kriegern! Stampft <strong>5 × mit dem Fuß</strong> auf den Boden und ruft dabei laut: <strong>„Ich bin mutig!"</strong></p>
+    </div>
+    <div class="task task-adults">
+      <div class="task-label">🧩 Erwachsenen-Rätsel</div>
+      <p><em>„Ich kann fliegen, habe aber keine Flügel. Ich kann weinen, habe aber keine Augen. Wo ich auftauche, wird es dunkel. Was bin ich?"</em></p>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Tipp 1 anzeigen</button>
+        <div class="spoiler-body">💡 Schaut mal nach oben.</div>
+      </div>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Tipp 2 anzeigen</button>
+        <div class="spoiler-body">💡 An Ostern hofft man, dass ich wegbleibe…</div>
+      </div>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Lösung anzeigen</button>
+        <div class="spoiler-body">✅ Eine Wolke!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="path-line"></div>
+  <div class="path-arrow">
+    <div class="next-hint">„Die Elster war nun erschöpft. Sie suchte einen Ort zum Ausruhen — mit Schaukeln und Wippen, dort wo ein kleiner Weg den Namen von Gras trägt."</div>
+  </div>
+  <div class="path-line"></div>
+
+  <!-- ══ STATION 5 ══ -->
+  <div class="station" data-num="5">
+    <div class="station-header">
+      <div class="station-num">5</div>
+      <div>
+        <div class="station-title">Das letzte Versteck</div>
+        <div class="station-location">Spielplatz · Grasweg</div>
+      </div>
+    </div>
+    <div class="story-text">
+      „Die müde Elster setzte sich auf die Schaukel und verlor ihren letzten Splitter — und eine Feder dazu! Findet beides, bevor der Wind sie davonträgt!"
+    </div>
+    <div class="task task-kids">
+      <div class="task-label">🐣 Kinder-Aufgabe</div>
+      <p>Jedes Kind darf <strong>5 × schaukeln</strong> — laut mitzählen! Danach: Oster-Tanz! Hüpft wie ein Hase im Kreis!</p>
+    </div>
+    <div class="task task-adults">
+      <div class="task-label">🧩 Erwachsenen-Rätsel</div>
+      <p><em>„Was kommt einmal in jeder Minute vor, zweimal in jedem Moment, aber nie in tausend Jahren?"</em></p>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Tipp anzeigen</button>
+        <div class="spoiler-body">💡 Denkt nicht an die Zeit — denkt an Buchstaben.</div>
+      </div>
+      <div class="spoiler" onclick="this.classList.toggle('open')">
+        <button class="spoiler-toggle"><span class="icon">▶</span> Lösung anzeigen</button>
+        <div class="spoiler-body">✅ Der Buchstabe M!</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="finale">
+  <h2>Das Finale</h2>
+  <p>Setzt die fünf Buchstaben zusammen, die ihr an den Stationen gesammelt habt!</p>
+  <div class="letter-boxes">
+    <div class="letter-box"><span>?</span></div>
+    <div class="letter-box"><span>?</span></div>
+    <div class="letter-box"><span>?</span></div>
+    <div class="letter-box"><span>?</span></div>
+    <div class="letter-box"><span>?</span></div>
+  </div>
+  <p><em>Wenn ihr das Wort habt, wisst ihr, wo der Osterhase den Schatz für euch versteckt hat — ganz nah an eurem Zuhause!</em></p>
+  <p class="final-note">🐰 Frohe Ostern!</p>
+</section>
+
+</body>
+</html>
